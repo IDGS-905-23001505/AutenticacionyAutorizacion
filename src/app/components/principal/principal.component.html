@@ -1,0 +1,48 @@
+<div class="contenedor-principal">
+  <h1>Sistema de Autenticación en Angular</h1>
+  <h2>ASP.NET Core y Microsoft Identity</h2>
+
+  <div class="botones-accion">
+    <button (click)="abrirRegistro()" class="btn-principal">Registro</button>
+    <button (click)="abrirLogin()" class="btn-secundario">Login</button>
+  </div>
+
+  <div class="fondo-modal" *ngIf="mostrarModalRegistro">
+    <div class="caja-modal">
+      <h3>Registro de Usuario</h3>
+      <form (ngSubmit)="enviarRegistro()">
+        <label>Nombre completo:</label>
+        <input type="text" [(ngModel)]="datosRegistro.nombreCompleto" name="nombreCompleto" required />
+
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="datosRegistro.email" name="email" required />
+
+        <label>Password:</label>
+        <input type="password" [(ngModel)]="datosRegistro.password" name="password" required />
+
+        <div class="acciones-modal">
+          <button type="button" (click)="cerrarRegistro()" class="btn-cancelar">Cancelar</button>
+          <button type="submit" class="btn-enviar">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="fondo-modal" *ngIf="mostrarModalLogin">
+    <div class="caja-modal">
+      <h3>Login</h3>
+      <form (ngSubmit)="enviarLogin()">
+        <label>Correo electrónico:</label>
+        <input type="email" [(ngModel)]="datosLogin.email" name="emailLogin" required />
+
+        <label>Contraseña:</label>
+        <input type="password" [(ngModel)]="datosLogin.password" name="passwordLogin" required />
+
+        <div class="acciones-modal">
+          <button type="button" (click)="cerrarLogin()" class="btn-cancelar">Cancelar</button>
+          <button type="submit" class="btn-enviar">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

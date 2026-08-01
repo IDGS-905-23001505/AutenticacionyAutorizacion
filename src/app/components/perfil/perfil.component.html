@@ -1,0 +1,23 @@
+<div class="contenedor-perfil">
+  <div class="contenido-pantalla" *ngIf="usuario; else cargando">
+    <h2>Bienvenido</h2>
+
+    <p class="texto-simple"><strong>{{ usuario.nombre }}</strong></p>
+    <p class="texto-simple">{{ usuario.email }}</p>
+
+    <div class="token-seccion">
+      <label>Token JWT</label>
+      <textarea readonly>{{ tokenActual }}</textarea>
+    </div>
+
+    <p class="texto-simple">Roles: {{ obtenerRoles() }}</p>
+
+    <button (click)="logout()" class="btn-logout">Logout</button>
+  </div>
+
+  <ng-template #cargando>
+    <div class="contenido-pantalla">
+      <p class="texto-simple">Cargando perfil de usuario...</p>
+    </div>
+  </ng-template>
+</div>
